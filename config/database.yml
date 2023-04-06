@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: sitg_basketball_production
-  username: sitg_basketball
-  password: <%= ENV["SITG_BASKETBALL_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
