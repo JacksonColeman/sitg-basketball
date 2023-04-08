@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
+// component imports
+import Setup from "./components/Setup";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
   return (
     <div className="App">
-      <h1>Page Count: {count}</h1>
+      <h1>Soul in the Game College Basketball</h1>
+      <Setup/>
     </div>
   );
 }
