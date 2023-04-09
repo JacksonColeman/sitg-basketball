@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
     if @user.save
       render json: @user, status: :created, location: @user
+      session[:current_user_id] = @user.id
     else
       render json: @user.errors, status: :unprocessable_entity
     end

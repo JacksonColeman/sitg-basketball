@@ -38,6 +38,11 @@ class TeamsController < ApplicationController
     @team.destroy
   end
 
+  # generate player /teams/id/generate_player
+  def generate_player
+    @player = Player.new(player_params)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
@@ -47,5 +52,9 @@ class TeamsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def team_params
       params.require(:team).permit(:university_name, :nickname, :conference_id)
+    end
+
+    def player_params
+      params.require(:player).permit(:first_name, :last_name, :year, :shooting, :playmaking, :rebounding, :defense, :physical, :team_id)
     end
 end

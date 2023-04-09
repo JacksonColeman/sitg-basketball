@@ -8,7 +8,8 @@ export default function NameEntry({handleFinishSetup}){
     }
 
     const handleSubmitName = (e) => {
-        handleFinishSetup(name)
+        e.preventDefault();
+        handleFinishSetup(name);
     }
 
     return (

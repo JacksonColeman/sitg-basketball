@@ -1,6 +1,3 @@
-import { useState } from "react"
-import TeamSelect from "./TeamSelect";
-
 export default function ConferenceSelect({conferences, updateConferenceID}){
     return (
         <div>

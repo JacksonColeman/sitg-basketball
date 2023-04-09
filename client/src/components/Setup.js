@@ -2,13 +2,17 @@ import ConferenceSelect from "./ConferenceSelect";
 import TeamSelect from "./TeamSelect";
 import { useState,useEffect } from "react";
 import NameEntry from "./NameEntry";
+import { useNavigate } from "react-router-dom";
 
-export default function Setup(){
+export default function Setup({updateUserID}){
     const [conferences, setConferences] = useState([]);
     const [selectedConferenceID, setSelectedConferenceID] = useState(null);
     const [teams, setTeams] = useState([]);
     const [selectedTeamID, setSelectedTeamID] = useState(null);
     const [userID, setUserID] = useState(0);
+
+    //use navigate
+    const navigate = useNavigate();
 
     const updateTeamID = (e) => {
         setSelectedTeamID(e.target.value);
@@ -42,7 +46,8 @@ export default function Setup(){
         };
         fetch("/users", newUser)
         .then(res => res.json())
-        .then(user => setUserID(user.id))
+        .then(user => updateUserID(user.id))
+        .then(() => navigate('/welcome'))
     }
 
     return (
